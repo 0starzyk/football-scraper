@@ -1,16 +1,10 @@
-# This is a sample Python script.
+from selenium.webdriver.chrome.service import Service
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    service = Service(executable_path='./chromedriver.exe')
+    driver = webdriver.Chrome(service=service)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    driver.get('https://www.fifa.com/fifa-world-ranking/men?dateId=id13869')
+    elements = driver.find_element(By.ID, 'table_rankingTable__7gmVl')
